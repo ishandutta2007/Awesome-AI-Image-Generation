@@ -2,24 +2,42 @@
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0a16" />
-      <stop offset="50%" stop-color="#120e2e" />
-      <stop offset="100%" stop-color="#05050f" />
+      <stop offset="0%" stop-color="#08071a" />
+      <stop offset="50%" stop-color="#0f0c29" />
+      <stop offset="100%" stop-color="#050510" />
     </linearGradient>
 
-    <!-- Animated Mesh Gradients -->
+    <!-- Glowing Radial Meshes -->
     <radialGradient id="mesh1" cx="20%" cy="30%" r="50%">
       <stop offset="0%" stop-color="#6366f1" stop-opacity="0.45" />
       <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="mesh2" cx="80%" cy="70%" r="60%">
+    <radialGradient id="mesh2" cx="80%" cy="65%" r="60%">
       <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35" />
       <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="mesh3" cx="50%" cy="50%" r="40%">
+    <radialGradient id="mesh3" cx="50%" cy="50%" r="45%">
       <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
       <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
     </radialGradient>
+
+    <!-- Animated Wave Gradients -->
+    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="waveGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.15" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.85" />
+    </linearGradient>
 
     <!-- Text Glow Filter -->
     <filter id="titleGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -30,7 +48,7 @@
       </feMerge>
     </filter>
 
-    <!-- Animated Shimmer Gradient for Title -->
+    <!-- Shimmer Title Gradient -->
     <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff">
         <animate attributeName="stop-color" values="#ffffff;#a5b4fc;#38bdf8;#ffffff" dur="8s" repeatCount="indefinite" />
@@ -42,40 +60,44 @@
         <animate attributeName="stop-color" values="#38bdf8;#ffffff;#f472b6;#38bdf8" dur="8s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
-
-    <!-- Flowing Wave Gradients -->
-    <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2" />
-      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
-    </linearGradient>
-    <linearGradient id="waveGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.15" />
-      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.3" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.15" />
-    </linearGradient>
   </defs>
 
   <style>
     .title {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-weight: 900;
-      font-size: 56px;
-      letter-spacing: -1.5px;
+      font-size: 54px;
+      letter-spacing: -1.2px;
     }
     .subtitle {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-weight: 500;
       font-size: 19px;
       fill: #cbd5e1;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
     }
     .badge-text {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      fill: #e0e7ff;
+      letter-spacing: 1px;
+    }
+    .tag-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       font-size: 13px;
       font-weight: 600;
-      fill: #e0e7ff;
-      letter-spacing: 0.8px;
+      fill: #94a3b8;
+    }
+    @keyframes pulseOrb {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0px); opacity: 0.3; }
+      50% { transform: translateY(-12px); opacity: 0.9; }
+      100% { transform: translateY(0px); opacity: 0.3; }
     }
   </style>
 
@@ -84,13 +106,13 @@
 
   <!-- DYNAMIC BACKGROUND LAYER: Animated Ambient Glow Orbs -->
   <g id="dynamic-ambient-background">
-    <!-- Pulsing Cyan Orb -->
-    <circle cx="250" cy="180" r="180" fill="url(#mesh1)">
+    <!-- Pulsing Cyan/Indigo Left Orb -->
+    <circle cx="240" cy="170" r="180" fill="url(#mesh1)">
       <animate attributeName="r" values="160;210;160" dur="7s" repeatCount="indefinite" />
-      <animate attributeName="cx" values="230;270;230" dur="9s" repeatCount="indefinite" />
+      <animate attributeName="cx" values="220;260;220" dur="9s" repeatCount="indefinite" />
     </circle>
-    <!-- Pulsing Pink/Magenta Orb -->
-    <circle cx="950" cy="160" r="210" fill="url(#mesh2)">
+    <!-- Pulsing Pink/Magenta Right Orb -->
+    <circle cx="960" cy="160" r="210" fill="url(#mesh2)">
       <animate attributeName="r" values="190;240;190" dur="8s" repeatCount="indefinite" />
       <animate attributeName="cy" values="140;180;140" dur="10s" repeatCount="indefinite" />
     </circle>
@@ -99,88 +121,89 @@
       <animate attributeName="opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite" />
     </circle>
 
-    <!-- Animated Flowing Waves at the bottom (Subtle & strictly background) -->
-    <path fill="url(#waveGrad1)" d="M0,290 C300,240 600,340 900,280 C1050,250 1150,300 1200,310 L1200,360 L0,360 Z">
+    <!-- Animated Flowing Waves at the bottom -->
+    <path fill="url(#waveGrad1)" d="M0,280 C300,240 600,330 900,270 C1050,240 1150,290 1200,300 L1200,360 L0,360 Z">
       <animate attributeName="d"
-        values="M0,290 C300,240 600,340 900,280 C1050,250 1150,300 1200,310 L1200,360 L0,360 Z;
-                M0,300 C350,330 650,260 950,310 C1080,330 1160,280 1200,290 L1200,360 L0,360 Z;
-                M0,290 C300,240 600,340 900,280 C1050,250 1150,300 1200,310 L1200,360 L0,360 Z"
+        values="M0,280 C300,240 600,330 900,270 C1050,240 1150,290 1200,300 L1200,360 L0,360 Z;
+                M0,290 C350,320 650,250 950,300 C1080,320 1160,270 1200,280 L1200,360 L0,360 Z;
+                M0,280 C300,240 600,330 900,270 C1050,240 1150,290 1200,300 L1200,360 L0,360 Z"
         dur="10s" repeatCount="indefinite" />
     </path>
-    <path fill="url(#waveGrad2)" d="M0,320 C250,350 550,290 850,330 C1000,350 1120,310 1200,320 L1200,360 L0,360 Z">
+    <path fill="url(#waveGrad2)" d="M0,310 C250,340 550,280 850,320 C1000,340 1120,300 1200,310 L1200,360 L0,360 Z">
       <animate attributeName="d"
-        values="M0,320 C250,350 550,290 850,330 C1000,350 1120,310 1200,320 L1200,360 L0,360 Z;
-                M0,310 C280,280 580,340 880,300 C1020,290 1140,330 1200,335 L1200,360 L0,360 Z;
-                M0,320 C250,350 550,290 850,330 C1000,350 1120,310 1200,320 L1200,360 L0,360 Z"
+        values="M0,310 C250,340 550,280 850,320 C1000,340 1120,300 1200,310 L1200,360 L0,360 Z;
+                M0,300 C280,270 580,330 880,290 C1020,280 1140,320 1200,325 L1200,360 L0,360 Z;
+                M0,310 C250,340 550,280 850,320 C1000,340 1120,300 1200,310 L1200,360 L0,360 Z"
         dur="12s" repeatCount="indefinite" />
     </path>
 
-    <!-- Floating Sparkles / Generative Diffusion Particles -->
+    <!-- Floating Generative Sparkles -->
     <circle cx="150" cy="90" r="2.5" fill="#a5b4fc" opacity="0.6">
       <animate attributeName="opacity" values="0.2;0.9;0.2" dur="3s" repeatCount="indefinite" />
-      <animate attributeName="cy" values="90;82;90" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="90;80;90" dur="4s" repeatCount="indefinite" />
     </circle>
     <circle cx="380" cy="65" r="3" fill="#38bdf8" opacity="0.7">
       <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="65;57;65" dur="4.5s" repeatCount="indefinite" />
     </circle>
     <circle cx="820" cy="80" r="2" fill="#f472b6" opacity="0.5">
       <animate attributeName="opacity" values="0.1;0.8;0.1" dur="3.5s" repeatCount="indefinite" />
     </circle>
-    <circle cx="1060" cy="110" r="3" fill="#c084fc" opacity="0.6">
+    <circle cx="1060" cy="100" r="3" fill="#c084fc" opacity="0.6">
       <animate attributeName="opacity" values="0.2;0.95;0.2" dur="4.5s" repeatCount="indefinite" />
-      <animate attributeName="cy" values="110;100;110" dur="5s" repeatCount="indefinite" />
+      <animate attributeName="cy" values="100;90;100" dur="5s" repeatCount="indefinite" />
     </circle>
-    <circle cx="1110" cy="230" r="2.5" fill="#38bdf8" opacity="0.4">
+    <circle cx="1110" cy="220" r="2.5" fill="#38bdf8" opacity="0.4">
       <animate attributeName="opacity" values="0.1;0.8;0.1" dur="3.8s" repeatCount="indefinite" />
     </circle>
-  </defs>
+  </g>
 
-  <!-- FOREGROUND LAYER: Badges, Title, Subtitle (Guaranteed in front) -->
+  <!-- FOREGROUND LAYER: Badges, Title, Subtitle, Tags (Guaranteed in front) -->
   <g id="foreground-content">
     <!-- Category Pill Tag -->
-    <g transform="translate(480, 50)">
-      <rect x="0" y="0" width="240" height="34" rx="17" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.7" />
-      <circle cx="18" cy="17" r="5" fill="#10b981">
+    <g transform="translate(475, 45)">
+      <rect x="0" y="0" width="250" height="34" rx="17" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.8" />
+      <circle cx="20" cy="17" r="5" fill="#10b981">
         <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
       </circle>
-      <text x="32" y="22" class="badge-text">CURATED ECOSYSTEM 2026</text>
+      <text x="35" y="22" class="badge-text">CURATED ECOSYSTEM 2026</text>
     </g>
 
     <!-- Main Title -->
-    <text x="600" y="150" text-anchor="middle" class="title" fill="url(#titleGrad)" filter="url(#titleGlow)">
+    <text x="600" y="145" text-anchor="middle" class="title" fill="url(#titleGrad)" filter="url(#titleGlow)">
       Awesome AI Image Generation
     </text>
 
     <!-- Subtitle -->
-    <text x="600" y="200" text-anchor="middle" class="subtitle">
+    <text x="600" y="195" text-anchor="middle" class="subtitle">
       State-of-the-Art Diffusion Models, Production SaaS Suites &amp; Open-Source Pipelines
     </text>
 
     <!-- Feature Tags -->
     <g transform="translate(600, 240)" text-anchor="middle">
       <!-- Tag 1: Text-to-Image -->
-      <g transform="translate(-290, 0)">
-        <rect x="0" y="0" width="130" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" />
-        <text x="65" y="19" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🎨 Text-to-Image</text>
+      <g transform="translate(-295, 0)">
+        <rect x="0" y="0" width="135" height="32" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+        <text x="67" y="20" text-anchor="middle" class="tag-text">🎨 Text-to-Image</text>
       </g>
       <!-- Tag 2: Diffusion & FLUX -->
-      <g transform="translate(-140, 0)">
-        <rect x="0" y="0" width="140" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" />
-        <text x="70" y="19" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#94a3b8">⚡ FLUX &amp; SDXL</text>
+      <g transform="translate(-145, 0)">
+        <rect x="0" y="0" width="140" height="32" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+        <text x="70" y="20" text-anchor="middle" class="tag-text">⚡ FLUX &amp; SDXL</text>
       </g>
       <!-- Tag 3: ComfyUI & WebUI -->
-      <g transform="translate(15, 0)">
-        <rect x="0" y="0" width="135" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" />
-        <text x="67" y="19" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🧩 ComfyUI Nodes</text>
+      <g transform="translate(10, 0)">
+        <rect x="0" y="0" width="140" height="32" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+        <text x="70" y="20" text-anchor="middle" class="tag-text">🧩 ComfyUI Nodes</text>
       </g>
       <!-- Tag 4: ControlNet & Inpainting -->
       <g transform="translate(165, 0)">
-        <rect x="0" y="0" width="135" height="30" rx="15" fill="#0f172a" stroke="#334155" stroke-width="1" />
-        <text x="67" y="19" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#94a3b8">🎯 Control &amp; Inpaint</text>
+        <rect x="0" y="0" width="145" height="32" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+        <text x="72" y="20" text-anchor="middle" class="tag-text">🎯 Control &amp; Inpaint</text>
       </g>
     </g>
   </g>
 
   <!-- Border Highlight -->
-  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="#312e81" stroke-width="1.5" stroke-opacity="0.5" />
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="#4338ca" stroke-width="1.5" stroke-opacity="0.6" />
 </svg>
