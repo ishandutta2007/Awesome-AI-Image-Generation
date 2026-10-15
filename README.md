@@ -69,7 +69,7 @@ The table below catalogs leading commercial AI image generators, ranked in desce
 
 The open-source generative AI landscape enables complete data privacy, offline inference, unlimited free local generations, custom LoRA fine-tuning, and node-based modularity. 
 
-Repositories are indexed and strictly ranked in **descending order by GitHub Stars_Count**. Each badge provides live social star tracking and directly links to the project's stargazers page.
+Repositories are indexed and strictly ranked in **descending order by GitHub_Stars_Count**. Each badge provides live social star tracking and directly links to the project's stargazers page.
 
 ### 🏆 Top Open-Source Frameworks & Interfaces
 
@@ -181,7 +181,7 @@ We welcome community contributions! To suggest new SaaS platforms or open-source
 2. 🌿 **Create a descriptive branch**: `git checkout -b feature/add-new-image-generator`.
 3. 📝 **Add your entry** adhering strictly to the formatting standards:
    - For **SaaS**: Include product name, URL, company valuation/revenue, exact starting tier pricing, specific free-tier limits, and key specialty.
-   - For **Open-Source**: Include repository name, URL, official GitHub Stars_Badge (`style=social&color=white`) linking to `/stargazers`, and 1–2 sentence factual summary. Maintain descending sort order!
+   - For **Open-Source**: Include repository name, URL, official GitHub_Stars_Badge (`style=social&color=white`) linking to `/stargazers`, and 1–2 sentence factual summary. Maintain descending sort order!
 4. 🚀 **Submit a Pull Request** with a concise description of the addition and verifiable source citations.
 
 ---
